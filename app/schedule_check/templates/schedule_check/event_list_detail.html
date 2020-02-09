@@ -1,0 +1,26 @@
+{% extends "schedule_check/base.html" %}
+{% load bootstrap4 %}
+{% block title %}イベント詳細{% endblock title %}
+
+{% block content %}
+<h4 class="mt-4 border-bottom">イベント詳細</h4>
+    <a>管理者はこちら</a><br>
+    <a href="{% url 'schedule_check:event_edit' event_id=dt.EVENT_ID %}" class="btn btn-outline-primary btn-sm">イベント編集</a>
+    <a href="{% url 'schedule_check:event_delete' event_id=dt.EVENT_ID %}" class="btn btn-outline-primary btn-sm">イベント削除</a></br>
+    <a href="{% url 'schedule_check:invite' event_id=dt.EVENT_ID %}" class="btn btn-outline-danger btn-sm">招待者登録</a>
+    <a href="{% url 'schedule_check:event_url' event_id=dt.EVENT_ID %}" class="btn btn-outline-danger btn-sm">イベントURL</a></br><br>
+    <a>参加者はこちら</a><br>
+    <a href="{% url 'schedule_check:attendance' event_id=dt.EVENT_ID %}" class="btn btn-outline-info btn-sm">出欠登録</a><br><br>
+    <a href="{% url 'schedule_check:event_list' %}" class="btn btn-primary btn-sm my-3">イベントリストに戻る</a>
+<table class="table">
+    <div class="col-md-6 col-sm-12">
+        <tr><td>イベントID</td><td>{{ dt.EVENT_ID }}</td></tr>
+        <tr><td>イベント名</td><td>{{ dt.EVENT_NAME }}</td></tr>
+        <tr><td>イベント説明</td><td><div style="white-space:pre-wrap;">{{ dt.EVENT_DSCRPT }}</div></td></tr>
+        <tr><td>候補日</td><td>{{ dt.EVENT_DATE1 }}</td></tr>
+        <tr><td></td><td>{{ dt.EVENT_DATE2 }}</td></tr>
+        <tr><td></td><td>{{ dt.EVENT_DATE3 }}</td></tr>
+        <tr><td></td><td>{{ dt.EVENT_DATE4 }}</td></tr>
+    </div>
+</table>
+{% endblock content %}

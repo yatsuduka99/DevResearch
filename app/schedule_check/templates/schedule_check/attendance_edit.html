@@ -1,0 +1,38 @@
+{% extends "schedule_check/base.html" %}
+{% load bootstrap4 %}
+{% block title %}イベント参加可否登録{% endblock title %}
+{% block content %}
+<h4 class="mt-4 border-bottom">イベント参加可否登録</h4>
+<table class="table ">
+    <tr><td>イベントID</td><td>{{ dt.event.EVENT_ID }}</td></tr>
+    <tr><td>イベント名</td><td>{{ dt.event.EVENT_NAME }}</td></tr>
+    <tr><td>イベント説明</td><td><div style="white-space:pre-wrap;">{{ dt.event.EVENT_DSCRPT }}</div></td></tr>
+</table>
+<form action="" method="POST">
+    {{ form.non_field_errors }}
+    <table id="table_id" class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th scope="col"></th>
+        {% for table_header in dt.list_table_header %}
+            <th scope="col">{{ table_header }}</th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody id="tbody_id">
+        <div class="form-group row">
+            <td></td>
+            {% for field in form %}
+            <div class="col-md-6 col-sm-12">
+                <td>{{ field }}</td>
+            </div>
+            {% endfor %}
+        </div>
+    </tbody>
+    </table>
+    <button type="submit" class="btn btn-primary btn-sm my-3">編集完了</button></br>
+    <a href="{% url 'schedule_check:attendance' event_id=dt.event.EVENT_ID %}" class="btn btn-secondary btn-sm">イベント参加状況に戻る</a>
+
+    {% csrf_token %}
+</form>
+{% endblock content %}

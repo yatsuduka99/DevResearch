@@ -1,0 +1,36 @@
+{% extends "schedule_check/base.html" %}
+{% load bootstrap4 %}
+{% block title %}イベント参加状況{% endblock title %}
+{% block content %}
+<h4 class="mt-4 border-bottom">イベント参加状況</h4>
+<table class="table ">
+    <tr><td>イベントID</td><td>{{ event.EVENT_ID }}</td></tr>
+    <tr><td>イベント名</td><td>{{ event.EVENT_NAME }}</td></tr>
+    <tr><td>イベント説明</td><td><div style="white-space:pre-wrap;">{{ event.EVENT_DSCRPT }}</div></td></tr>
+</table>
+<table id="table_id" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            {% for table_header in list_table_header %}
+                <th scope="col">{{ table_header }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody id="tbody_id">
+        {% for list_table_data in lists_table_data %}
+        <tr>
+            {% for table_data in list_table_data %}
+                <div class="col-md-6 col-sm-12">
+                    <td>{{ table_data }}</td>
+                </div>
+            {% endfor %}
+            <td>
+                <a href="{% url 'schedule_check:attendance_edit' event_id=event.EVENT_ID invite_id=forloop.counter%}" class="btn btn-outline-primary btn-sm">参加可否登録</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'schedule_check:event_list_detail' event_id=event.EVENT_ID %}" class="btn btn-secondary btn-sm">イベント詳細に戻る</a>
+{% endblock content %}

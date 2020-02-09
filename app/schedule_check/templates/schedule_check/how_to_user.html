@@ -1,0 +1,29 @@
+{% extends "schedule_check/base.html" %}
+{% load bootstrap4 %}
+{% block title %}利用方法{% endblock title %}
+{% block content %}
+<h4 class="mt-4 border-bottom">利用方法</h4>
+        <details>
+                <summary>1.イベント作成</summary>
+                <P>1-1.［イベント一覧］ページから［イベント新規作成］ボタンをクリック</P>
+                <p>1-2.項目に入力 ※イベント名、項目日程は入力必須</p>
+                <p>1-3.［イベント作成］ボタンをクリック</p>
+        </details><br>
+        <details>
+                <summary>2.イベント編集</summary>
+                <p>2-1.［イベント一覧］ページから編集したいイベントの［詳細］をクリック</p>
+                <p>2-2.［イベント編集］ボタンをクリック ※1-2で設定している場合パスワードが求められます</p>
+        </details><br>
+        <details>
+                <summary>3.イベント招待</summary>
+                <p>3-1.［イベント一覧］ページから招待したいイベントの［詳細］をクリック</p>
+                <P>3-2.［招待者登録］ボタンをクリック ※1-2で設定している場合パスワードが求められます</P>
+                <p>3-3.招待者の名前を入力し［登録］ボタンをクリック</p>
+        </details><br>
+        <details>
+                <summary>4.イベント参加</summary>
+                <P>4-1.［イベント詳細］ページから［出欠登録］ボタンをクリック</P>
+                <p>4-2.リストに表示される日付から都合の良い日付を選択し［参加可否登録］ボタンをクリックする</p>
+        </details><br>
+                <a href="{% url 'schedule_check:index' %}" class="btn btn-secondary btn-sm">トップページに戻る</a>
+{% endblock content %}

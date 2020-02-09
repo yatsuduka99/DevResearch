@@ -1,0 +1,21 @@
+{% extends "schedule_check/base.html" %}
+{% load bootstrap4 %}
+{% block title %}イベントURL{% endblock title %}
+{% block content %}
+<h4 class="mt-4 border-bottom-">イベントURL</h4>
+<div class="form-group">
+    <label class="control-label">参加者ページURL</label>
+    <input type="text" id="attendance_url" class="form-control" readonly
+           value="https://{{ request.get_host }}{% url 'schedule_check:attendance' event_id=EVENT_ID %}">
+    <button class="btn btn-link btn-sm" onclick="copyToClipboard()">URLをクリップボードにコピー</button>
+</div>
+<script>
+    function copyToClipboard() {
+        var copyTarget = document.getElementById("attendance_url");
+        copyTarget.select();
+        document.execCommand("copy");
+        alert("コピー出来ました!"+ copyTarget.value);
+    }
+</script>
+<a href="{% url 'schedule_check:event_list_detail' event_id=EVENT_ID %}" class="btn btn-secondary btn-sm">イベント詳細に戻る</a>
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends "schedule_check/base.html" %}
+{% load bootstrap4 %}
+{% block title %}イベント編集{% endblock title %}
+{% block content %}
+<h4 class="mt-4 border-bottom">イベント編集</h4>
+<form action="" method="POST">
+    {{ form.non_field_errors }}
+    {% for field in form %}
+        <div class="form-group row">
+            {{ field.label_tag }}
+            <div class="col-md-6 col-sm-12">
+                {{ field }}
+                {% if field.help_text %}
+                    <span class="helptext">{{ field.help_text }}</span>
+                {% endif %}
+                {{ field.errors }}
+            </div>
+        </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary btn-sm my-3">編集完了</button></br>
+    <a href="{% url 'schedule_check:event_list_detail' event_id=dt.EVENT_ID %}" class="btn btn-secondary btn-sm">イベント詳細に戻る</a>
+    {% csrf_token %}
+</form>
+{% endblock content %}

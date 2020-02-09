@@ -1,12 +1,13 @@
 {% load i18n static %}
 <!DOCTYPE html>{% get_current_language as LANGUAGE_CODE %}
-<html lang="{{ LANGUAGE_CODE|default:"en-us" }}">
+<html lang="{{ LANGUAGE_CODE|default:"en-us>
+</html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="{% static 'schedule_check/css/bootstrap.min.css' %}">
-  {% block extra_css %}{% endblock %}
-  <title>{% block title %}My books{% endblock %}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+{% block extra_css %}{% endblock %}
+<title>{% block title %}My books{% endblock %}</title>
 </head>
 <body>
   <div class="container">
@@ -14,8 +15,8 @@
       {{ content }}
     {% endblock %}
   </div>
-  <script src="{% static 'schedule_check/js/jquery-3.4.1.min.js' %}"></script>
-  <script src="{% static 'schedule_check/js/bootstrap.bundle.min.js' %}"></script>
-  {% block extra_js %}{% endblock %}
+<script src="{% static 'vendor/jquery/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+{% block extra_js %}{% endblock %}
 </body>
 </html>

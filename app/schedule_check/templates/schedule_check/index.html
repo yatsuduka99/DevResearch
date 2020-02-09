@@ -2,6 +2,7 @@
 {% load bootstrap4 %}
 {% block title %}トップページ{% endblock title %}
 {% block content %}
-<h4 class="mt-4 border-bottom">トップページ</h4>
+    <h4 class="mt-4 border-bottom">トップページ</h4>
+    <a href="{% url 'schedule_check:event_list' %}" class="btn btn-primary btn-sm my-3">イベント一覧</a></br>
+    <a href="{% url 'schedule_check:how_to_user' %}" class="btn btn-info btn-sm my-3">利用方法</a></br>
 {% endblock content %}
-
